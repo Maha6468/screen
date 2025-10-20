@@ -18,13 +18,11 @@ class Home extends StatelessWidget {
               subtitle:Text("Space"),
               trailing: Icon(Icons.shopping_bag_outlined),
             ),
-           // SizedBox(height: 5),
+
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text("Smooth Out \nYour Everyday",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 30),),
             ),
-           // SizedBox(height: 5),
-
 
             Flexible(
               flex: 2,
@@ -36,48 +34,36 @@ class Home extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                     // _buildCategoryRowAlongCurve(context),
-
-
-                      Stack(
-                        children: [
-                          Positioned(
-                            bottom: -50,
-                            top: -10,
-                            left: 10,
-                            child: _buildCategoryItem("☕", "HOT COFFEE"),
-                          ),
-                          Align(
-                            alignment: const Alignment(-0.3, -0.2),
-                            child: _buildCategoryItem("🥤", "DRINKS"),
-                          ),
-                          Align(
-                            alignment: const Alignment(0.3, -0.2),
-                            child: _buildCategoryItem("🍵", "HOT TEAS"),
-                          ),
-                          Align(
-                            alignment: const Alignment(0.8, 0.2),
-                            child: _buildCategoryItem("🧁", "BAKERY"),
-                          ),
-
-
-
-
-
-
-
-
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Transform.translate(
+                              offset: const Offset(-15, 45),
+                              child: _buildCategoryItem("☕", "HOT COFFEE"),
+                            ),
+                            Transform.translate(
+                              offset: const Offset(-4, 12),
+                              child: _buildCategoryItem("🥤", "DRINKS"),
+                            ),
+                            Transform.translate(
+                              offset: const Offset(4, 12),
+                              child: _buildCategoryItem("🍵", "HOT TEAS"),
+                            ),
+                            Transform.translate(
+                              offset: const Offset(15, 45),
+                              child: _buildCategoryItem("🧁", "BAKERY"),
+                            ),
+                          ],
+                        ),
                       ),
-
-
 
                       Image.asset(
                         "assets/images/img.png",
-                        height: 150,
+                        height: 200,
                         fit: BoxFit.contain,
                       ),
-                      //const SizedBox(height: 10),
                       const Text(
                         "Caramel \nFrappuccino",
                         style: TextStyle(
@@ -96,9 +82,6 @@ class Home extends StatelessWidget {
                       ),
 
 
-
-
-
                     ],
                   ),
                 ),
@@ -106,8 +89,6 @@ class Home extends StatelessWidget {
             ),
 
 
-        
-        
           ],
         ),
       ),
@@ -144,15 +125,15 @@ Widget _buildCategoryItem(String icon, String title) {
   return Column(
     children: [
       CircleAvatar(
-        radius: 30,
+        radius: 32,
         backgroundColor: Colors.white,
-        child: Text(icon, style: const TextStyle(fontSize: 22)),
+        child: Text(icon, style: const TextStyle(fontSize: 30)),
       ),
       const SizedBox(height: 5),
       Text(
         title,
         style: const TextStyle(
-            fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white
+            fontSize: 9, fontWeight: FontWeight.w600, color: Colors.grey
         ),
       ),
     ],
