@@ -125,7 +125,7 @@ Widget _buildCategoryItem(String icon, String title) {
   return Column(
     children: [
       CircleAvatar(
-        radius: 32,
+        radius: 30,
         backgroundColor: Colors.white,
         child: Text(icon, style: const TextStyle(fontSize: 30)),
       ),
