@@ -14,10 +14,8 @@ class CoffeeHomePage extends StatelessWidget {
             _buildHeader(),
             const SizedBox(height: 20),
             _buildTitle(),
-            const SizedBox(height: 20),
-            _buildCategoryRow(),
             const SizedBox(height: 30),
-            _buildMainDrink(),
+            _buildMainDrink(), // এখন mainDrink এর ভেতরেই category চলে গেছে
           ],
         ),
       ),
@@ -104,7 +102,7 @@ class CoffeeHomePage extends StatelessWidget {
     );
   }
 
-  // 🍹 Main Drink Display
+  // 🍹 Main Drink Display (এখানে category ও আছে)
   Widget _buildMainDrink() {
     return Expanded(
       child: Container(
@@ -117,10 +115,16 @@ class CoffeeHomePage extends StatelessWidget {
           ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 30),
+
+            // এখানে Category Row টা ঢোকানো হয়েছে
+            _buildCategoryRow(),
+
+            const SizedBox(height: 30),
+
             Image.asset(
-              "assets/images/frappuccino.png", // তোমার ইমেজ দাও
+              "assets/images/frappuccino.png", // তোমার ইমেজ path
               height: 200,
               fit: BoxFit.contain,
             ),

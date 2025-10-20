@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -34,20 +36,54 @@ class Home extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                     // _buildCategoryRowAlongCurve(context),
+
+
+                      Stack(
+                        children: [
+                          Positioned(
+                            bottom: -50,
+                            top: -10,
+                            left: 10,
+                            child: _buildCategoryItem("☕", "HOT COFFEE"),
+                          ),
+                          Align(
+                            alignment: const Alignment(-0.3, -0.2),
+                            child: _buildCategoryItem("🥤", "DRINKS"),
+                          ),
+                          Align(
+                            alignment: const Alignment(0.3, -0.2),
+                            child: _buildCategoryItem("🍵", "HOT TEAS"),
+                          ),
+                          Align(
+                            alignment: const Alignment(0.8, 0.2),
+                            child: _buildCategoryItem("🧁", "BAKERY"),
+                          ),
+
+
+
+
+
+
+
+
+                        ],
+                      ),
+
+
+
                       Image.asset(
                         "assets/images/img.png",
-                        height: 250,
+                        height: 150,
                         fit: BoxFit.contain,
                       ),
                       //const SizedBox(height: 10),
-                      Center(
-                        child: const Text(
-                          "Caramel \nFrappuccino",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey,
-                          ),
+                      const Text(
+                        "Caramel \nFrappuccino",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -58,6 +94,11 @@ class Home extends StatelessWidget {
                           color: Colors.white70,
                         ),
                       ),
+
+
+
+
+
                     ],
                   ),
                 ),
@@ -73,6 +114,7 @@ class Home extends StatelessWidget {
     );
   }
 }
+
 
 
 class TopCurveClipper extends CustomClipper<Path> {
@@ -94,4 +136,25 @@ class TopCurveClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+
+
+Widget _buildCategoryItem(String icon, String title) {
+  return Column(
+    children: [
+      CircleAvatar(
+        radius: 30,
+        backgroundColor: Colors.white,
+        child: Text(icon, style: const TextStyle(fontSize: 22)),
+      ),
+      const SizedBox(height: 5),
+      Text(
+        title,
+        style: const TextStyle(
+            fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white
+        ),
+      ),
+    ],
+  );
 }
