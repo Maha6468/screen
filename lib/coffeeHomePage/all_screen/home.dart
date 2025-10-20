@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
             ),
 
             Flexible(
-              flex: 2,
+              flex: 3,
               child: ClipPath(
                 clipper: TopCurveClipper(),
                 child: Container(
