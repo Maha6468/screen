@@ -9,9 +9,11 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     return Scaffold(
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ListTile(
               leading: Icon(Icons.baby_changing_station),
@@ -22,10 +24,10 @@ class Home extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text("Smooth Out \nYour Everyday",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 30),),
+              child: Text("Smooth Out \nYour Everyday",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: size.width * 0.07),),
             ),
 
-            Expanded(
+            Flexible(
               child: ClipPath(
                 clipper: TopCurveClipper(),
                 child: Container(
@@ -41,18 +43,22 @@ class Home extends StatelessWidget {
                           children: [
                             Transform.translate(
                               offset: const Offset(-15, 45),
+                             // offset: Offset(-size.width * 0.04, size.height * 0.05),
                               child: _buildCategoryItem("☕", "HOT COFFEE",size),
                             ),
                             Transform.translate(
                               offset: const Offset(-4, 12),
+                             // offset: Offset(-size.width * 0.04, size.height * 0.05),
                               child: _buildCategoryItem("🥤", "DRINKS",size),
                             ),
                             Transform.translate(
                               offset: const Offset(4, 12),
+                             // offset: Offset(-size.width * 0.04, size.height * 0.05),
                               child: _buildCategoryItem("🍵", "HOT TEAS",size),
                             ),
                             Transform.translate(
                               offset: const Offset(15, 45),
+                            //  offset: Offset(-size.width * 0.04, size.height * 0.05),
                               child: _buildCategoryItem("🧁", "BAKERY",size),
                             ),
                           ],
