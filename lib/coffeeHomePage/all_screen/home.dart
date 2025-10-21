@@ -8,6 +8,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -24,8 +25,7 @@ class Home extends StatelessWidget {
               child: Text("Smooth Out \nYour Everyday",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 30),),
             ),
 
-            Flexible(
-              flex: 3,
+            Expanded(
               child: ClipPath(
                 clipper: TopCurveClipper(),
                 child: Container(
@@ -41,19 +41,19 @@ class Home extends StatelessWidget {
                           children: [
                             Transform.translate(
                               offset: const Offset(-15, 45),
-                              child: _buildCategoryItem("☕", "HOT COFFEE"),
+                              child: _buildCategoryItem("☕", "HOT COFFEE",size),
                             ),
                             Transform.translate(
                               offset: const Offset(-4, 12),
-                              child: _buildCategoryItem("🥤", "DRINKS"),
+                              child: _buildCategoryItem("🥤", "DRINKS",size),
                             ),
                             Transform.translate(
                               offset: const Offset(4, 12),
-                              child: _buildCategoryItem("🍵", "HOT TEAS"),
+                              child: _buildCategoryItem("🍵", "HOT TEAS",size),
                             ),
                             Transform.translate(
                               offset: const Offset(15, 45),
-                              child: _buildCategoryItem("🧁", "BAKERY"),
+                              child: _buildCategoryItem("🧁", "BAKERY",size),
                             ),
                           ],
                         ),
@@ -61,7 +61,8 @@ class Home extends StatelessWidget {
 
                       Image.asset(
                         "assets/images/img.png",
-                        height: 200,
+                       // height: 200,
+                        height: size.height * 0.20,
                         fit: BoxFit.contain,
                       ),
                       const Text(
@@ -121,13 +122,18 @@ class TopCurveClipper extends CustomClipper<Path> {
 
 
 
-Widget _buildCategoryItem(String icon, String title) {
+Widget _buildCategoryItem(String icon, String title,Size size) {
   return Column(
     children: [
       CircleAvatar(
-        radius: 30,
+       // radius: 30,
+        radius: size.width * 0.07,
         backgroundColor: Colors.white,
-        child: Text(icon, style: const TextStyle(fontSize: 30)),
+        child: Text(icon, style:  TextStyle(
+           // fontSize: 30,
+            fontSize: size.width * 0.07
+
+        )),
       ),
       const SizedBox(height: 5),
       Text(
