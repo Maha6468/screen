@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:screen/practice/practice2.dart';
 
+import 'coffeeHomePage/all_screen/details.dart';
 import 'coffeeHomePage/all_screen/home.dart';
-import 'practice/coffehome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,8 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-     home:Home(),
-     // home:CoffeeHomePage()
+     home:Details(),
     );
   }
 }
